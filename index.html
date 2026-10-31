@@ -1,64 +1,89 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="author" content="Sergey Kazhuro" />
-  <meta name="developer" content="谢尔盖·卡茹罗 Sergey Kazhuro Сергей Кажуро" />
-  <meta name="description" content="RouteBike privacy policy. Developer: 谢尔盖·卡茹罗 (Sergey Kazhuro). App: RouteBike com.bukepo.bikecomputer." />
-  <title>RouteBike 隐私政策 | 开发者 谢尔盖·卡茹罗 Sergey Kazhuro</title>
+  <meta name="author" content="KAZHURA SIARHEI" />
+  <meta name="developer" content="KAZHURA SIARHEI" />
+  <meta name="description" content="RouteBike privacy policy. Developer: KAZHURA SIARHEI. App: RouteBike com.bukepo.bikecomputer." />
+  <title>RouteBike privacy policy | Developer KAZHURA SIARHEI</title>
   <style>
     body { font-family: system-ui, "Noto Sans SC", "PingFang SC", sans-serif; max-width: 720px; margin: 32px auto; padding: 0 16px; line-height: 1.6; color: #111; }
     h1 { font-size: 1.4rem; }
-    h2 { font-size: 1.15rem; margin-top: 2.2rem; }
     nav { font-size: 0.95rem; margin: 0 0 1.5rem; }
     nav a { margin-right: 12px; }
     .dev { background: #f3f4f6; padding: 12px 14px; border-radius: 8px; }
+    html[data-lang="zh"] .lang-ru, html[data-lang="zh"] .lang-en { display: none; }
+    html[data-lang="ru"] .lang-zh, html[data-lang="ru"] .lang-en { display: none; }
+    html[data-lang="en"] .lang-zh, html[data-lang="en"] .lang-ru { display: none; }
   </style>
+  <script>
+    function routebikePrivacyLang(tag) {
+      tag = (tag || "en").toLowerCase();
+      var bits = tag.split("-");
+      var region = bits.length > 1 ? bits[bits.length - 1] : "";
+      if (region === "cn" || region === "hk" || region === "mo" || region === "tw" || tag.indexOf("zh") === 0)
+        return "zh";
+      if (region === "ru" || region === "by" || region === "kz" || region === "kg" || tag.indexOf("ru") === 0)
+        return "ru";
+      return "en";
+    }
+    function routebikeSetPrivacyLang(lang) {
+      document.documentElement.setAttribute("data-lang", lang);
+      document.documentElement.lang = lang === "zh" ? "zh-CN" : lang;
+    }
+    routebikeSetPrivacyLang(routebikePrivacyLang(navigator.language || navigator.userLanguage));
+  </script>
 </head>
 <body>
+  <p class="dev"><strong>Developer name / 开发者姓名 / Разработчик:</strong> KAZHURA SIARHEI<br />
+  <strong>App name / 应用名称 / Приложение:</strong> RouteBike<br />
+  <strong>Package / 包名 / Пакет:</strong> com.bukepo.bikecomputer<br />
+  <strong>Email / 联系邮箱 / Почта:</strong> sergevm88@gmail.com</p>
+
   <nav>
-    <a href="#zh">中文</a>
-    <a href="#ru">Русский</a>
-    <a href="#en">English</a>
+    <a href="#zh" onclick="routebikeSetPrivacyLang('zh'); return true;">中文</a>
+    <a href="#ru" onclick="routebikeSetPrivacyLang('ru'); return true;">Русский</a>
+    <a href="#en" onclick="routebikeSetPrivacyLang('en'); return true;">English</a>
   </nav>
 
-  <p class="dev"><strong>开发者姓名 Developer name:</strong> 谢尔盖·卡茹罗 / Sergey Kazhuro / Сергей Кажуро<br />
-  <strong>应用名称 App name:</strong> RouteBike<br />
-  <strong>包名 Package:</strong> com.bukepo.bikecomputer<br />
-  <strong>联系邮箱 Email:</strong> sergevm88@gmail.com</p>
+  <section class="lang lang-zh" id="zh">
+    <h1>RouteBike 隐私政策</h1>
+    <p><strong>应用名称：</strong>RouteBike</p>
+    <p><strong>开发者：</strong>KAZHURA SIARHEI</p>
+    <p><strong>联系邮箱：</strong>sergevm88@gmail.com</p>
+    <p><strong>应用包名：</strong>com.bukepo.bikecomputer</p>
+    <p>RouteBike 是一款自行车码表。行程数据、GPS 轨迹和地图缓存仅保存在您的手机本地。我们不提供账号注册，也不会把您的坐标发送到开发者自己的服务器。</p>
+    <p>位置信息用于：在地图上显示您的位置、记录骑行轨迹、规划自行车路线，以及下载您附近的地图瓦片。前台定位服务和常驻通知用于在屏幕关闭时继续记录轨迹。</p>
+    <p>路线规划使用公开的 OSRM 服务。地点搜索使用 Nominatim（OpenStreetMap）。地图瓦片来自 OpenStreetMap / Esri。天气来自 Open-Meteo。您使用上述功能时，这些第三方会收到请求中的坐标，并按其自身政策处理。</p>
+    <p>只有在您主动操作时，RouteBike 才会打开写给开发者的邮件。诊断信息包括应用版本、手机型号、Android 版本、语言和地图缓存大小，不包含坐标和行程历史。</p>
+    <p>您可以在应用内删除行程和地图缓存。卸载应用将删除本地数据。</p>
+  </section>
 
-  <h1 id="zh">RouteBike 隐私政策</h1>
-  <p><strong>应用名称：</strong>RouteBike</p>
-  <p><strong>开发者：</strong>谢尔盖·卡茹罗（Sergey Kazhuro）</p>
-  <p><strong>联系邮箱：</strong>sergevm88@gmail.com</p>
-  <p><strong>应用包名：</strong>com.bukepo.bikecomputer</p>
-  <p>RouteBike 是一款自行车码表。行程数据、GPS 轨迹和地图缓存仅保存在您的手机本地。我们不提供账号注册，也不会把您的坐标发送到开发者自己的服务器。</p>
-  <p>位置信息用于：在地图上显示您的位置、记录骑行轨迹、规划自行车路线，以及下载您附近的地图瓦片。前台定位服务和常驻通知用于在屏幕关闭时继续记录轨迹。</p>
-  <p>路线规划使用公开的 OSRM 服务。地点搜索使用 Nominatim（OpenStreetMap）。地图瓦片来自 OpenStreetMap / Esri。天气来自 Open-Meteo。您使用上述功能时，这些第三方会收到请求中的坐标，并按其自身政策处理。</p>
-  <p>只有在您主动操作时，RouteBike 才会打开写给开发者的邮件。诊断信息包括应用版本、手机型号、Android 版本、语言和地图缓存大小，不包含坐标和行程历史。</p>
-  <p>您可以在应用内删除行程和地图缓存。卸载应用将删除本地数据。</p>
+  <section class="lang lang-ru" id="ru">
+    <h1>Политика конфиденциальности RouteBike</h1>
+    <p><strong>Приложение:</strong> RouteBike</p>
+    <p><strong>Разработчик:</strong> KAZHURA SIARHEI</p>
+    <p><strong>Почта:</strong> sergevm88@gmail.com</p>
+    <p><strong>Пакет:</strong> com.bukepo.bikecomputer</p>
+    <p>RouteBike — велокомпьютер. Данные поездки, GPS-трек и кэш карты хранятся только на вашем телефоне. Мы не регистрируем аккаунты и не отправляем ваши координаты на свои серверы.</p>
+    <p>Геолокация используется, чтобы показать вас на карте, записать трек, построить велосипедный маршрут и скачать тайлы карты вокруг вас. Фоновая служба с уведомлением нужна, чтобы трек не обрывался при погашенном экране.</p>
+    <p>Маршруты строятся через открытый сервис OSRM. Поиск мест — Nominatim (OpenStreetMap). Карта — тайлы OpenStreetMap / Esri. Погода — Open-Meteo. Эти сторонние сервисы получают координаты запроса по своим правилам.</p>
+    <p>Только по вашему действию RouteBike может открыть письмо разработчику. Диагностика содержит версию приложения, модель телефона, версию Android, язык и размер кэша карты; координаты и история поездок не прикладываются.</p>
+    <p>Вы можете удалить поездки и кэш карты в приложении. Удаление приложения стирает локальные данные.</p>
+  </section>
 
-  <h2 id="ru">Политика конфиденциальности RouteBike</h2>
-  <p><strong>Приложение:</strong> RouteBike</p>
-  <p><strong>Разработчик:</strong> Сергей Кажуро (Sergey Kazhuro)</p>
-  <p><strong>Почта:</strong> sergevm88@gmail.com</p>
-  <p><strong>Пакет:</strong> com.bukepo.bikecomputer</p>
-  <p>RouteBike — велокомпьютер. Данные поездки, GPS-трек и кэш карты хранятся только на вашем телефоне. Мы не регистрируем аккаунты и не отправляем ваши координаты на свои серверы.</p>
-  <p>Геолокация используется, чтобы показать вас на карте, записать трек, построить велосипедный маршрут и скачать тайлы карты вокруг вас. Фоновая служба с уведомлением нужна, чтобы трек не обрывался при погашенном экране.</p>
-  <p>Маршруты строятся через открытый сервис OSRM. Поиск мест — Nominatim (OpenStreetMap). Карта — тайлы OpenStreetMap / Esri. Погода — Open-Meteo. Эти сторонние сервисы получают координаты запроса по своим правилам.</p>
-  <p>Только по вашему действию RouteBike может открыть письмо разработчику. Диагностика содержит версию приложения, модель телефона, версию Android, язык и размер кэша карты; координаты и история поездок не прикладываются.</p>
-  <p>Вы можете удалить поездки и кэш карты в приложении. Удаление приложения стирает локальные данные.</p>
-
-  <h2 id="en">RouteBike privacy policy</h2>
-  <p><strong>App name:</strong> RouteBike</p>
-  <p><strong>Developer:</strong> Sergey Kazhuro (Сергей Кажуро)</p>
-  <p><strong>Email:</strong> sergevm88@gmail.com</p>
-  <p><strong>Package:</strong> com.bukepo.bikecomputer</p>
-  <p>RouteBike is a bike computer. Ride data, GPS track and map cache stay on your phone. There is no account and we do not send your coordinates to our own servers.</p>
-  <p>Location is used to show you on the map, record a track, build a bicycle route and download map tiles around you. A foreground service with a notification keeps the track alive when the screen is off.</p>
-  <p>Routes use public OSRM. Place search uses Nominatim (OpenStreetMap). Maps use OpenStreetMap / Esri tiles. Weather uses Open-Meteo. Those third parties receive the request coordinates under their own terms.</p>
-  <p>Only when you choose to do so, RouteBike can open an email to the developer. Diagnostics include the app version, phone model, Android version, language, and map cache size; coordinates and ride history are not attached.</p>
-  <p>You can delete rides and the map cache in the app. Uninstalling the app removes local data.</p>
+  <section class="lang lang-en" id="en">
+    <h1>RouteBike privacy policy</h1>
+    <p><strong>App name:</strong> RouteBike</p>
+    <p><strong>Developer:</strong> KAZHURA SIARHEI</p>
+    <p><strong>Email:</strong> sergevm88@gmail.com</p>
+    <p><strong>Package:</strong> com.bukepo.bikecomputer</p>
+    <p>RouteBike is a bike computer. Ride data, GPS track and map cache stay on your phone. There is no account and we do not send your coordinates to our own servers.</p>
+    <p>Location is used to show you on the map, record a track, build a bicycle route and download map tiles around you. A foreground service with a notification keeps the track alive when the screen is off.</p>
+    <p>Routes use public OSRM. Place search uses Nominatim (OpenStreetMap). Maps use OpenStreetMap / Esri tiles. Weather uses Open-Meteo. Those third parties receive the request coordinates under their own terms.</p>
+    <p>Only when you choose to do so, RouteBike can open an email to the developer. Diagnostics include the app version, phone model, Android version, language, and map cache size; coordinates and ride history are not attached.</p>
+    <p>You can delete rides and the map cache in the app. Uninstalling the app removes local data.</p>
+  </section>
 </body>
 </html>
